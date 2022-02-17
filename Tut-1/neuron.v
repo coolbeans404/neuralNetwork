@@ -45,7 +45,7 @@ module neuron #(parameter layerNo=0,neuronNo=0,numWeight=784,dataWidth=16,sigmoi
     reg [dataWidth-1:0]  w_in;
     wire [dataWidth-1:0] w_out;
     reg [2*dataWidth-1:0]  mul; 
-    reg [2*dataWidth-1:0]  sum;
+    reg [2*dataWidth-1:0]  sum;		//Previous Sum
     reg [2*dataWidth-1:0]  bias;
     reg [31:0]    biasReg[0:0];
     reg         weight_valid;
@@ -63,7 +63,7 @@ module neuron #(parameter layerNo=0,neuronNo=0,numWeight=784,dataWidth=16,sigmoi
     begin
         if(rst)
         begin
-            w_addr <= {addressWidth{1'b1}};
+            w_addr <= {addressWidth{1'b1}};	//1'b1 is initialise all 1s without knowing the size (please look-up)
             wen <=0;
         end
         else if(weightValid & (config_layer_num==layerNo) & (config_neuron_num==neuronNo))
@@ -77,7 +77,7 @@ module neuron #(parameter layerNo=0,neuronNo=0,numWeight=784,dataWidth=16,sigmoi
     end
 
     assign mux_valid = mult_valid;
-    assign comboAdd = mul + sum;
+    assign comboAdd = mul + sum;	
     assign BiasAdd = bias + sum;
     assign ren = myinputValid;
     
@@ -121,16 +121,19 @@ module neuron #(parameter layerNo=0,neuronNo=0,numWeight=784,dataWidth=16,sigmoi
             sum <= 0;
         else if((r_addr == numWeight) & muxValid_f)
         begin
+			//check overflow
             if(!bias[2*dataWidth-1] &!sum[2*dataWidth-1] & BiasAdd[2*dataWidth-1]) //If bias and sum are positive and after adding bias to sum, if sign bit becomes 1, saturate
             begin
                 sum[2*dataWidth-1] <= 1'b0;
                 sum[2*dataWidth-2:0] <= {2*dataWidth-1{1'b1}};
             end
+			//check underflow
             else if(bias[2*dataWidth-1] & sum[2*dataWidth-1] &  !BiasAdd[2*dataWidth-1]) //If bias and sum are negative and after addition if sign bit is 0, saturate
             begin
                 sum[2*dataWidth-1] <= 1'b1;
                 sum[2*dataWidth-2:0] <= {2*dataWidth-1{1'b0}};
             end
+			//neither over/underflow
             else
                 sum <= BiasAdd; 
         end
@@ -174,6 +177,7 @@ module neuron #(parameter layerNo=0,neuronNo=0,numWeight=784,dataWidth=16,sigmoi
         .wout(w_out)
     );
     
+	//Selective module instantiation using generate statement
     generate
         if(actType == "sigmoid")
         begin:siginst
