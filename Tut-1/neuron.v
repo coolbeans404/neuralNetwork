@@ -119,6 +119,7 @@ module neuron #(parameter layerNo=0,neuronNo=0,numWeight=784,dataWidth=16,sigmoi
     begin
         if(rst|outvalid)
             sum <= 0;
+		//according to a comment on youtube; this 2x4 mux can be rewritten as a 2x2 mux that is simpler and consumes less resources
         else if((r_addr == numWeight) & muxValid_f)
         begin
 			//check overflow
