@@ -1,4 +1,5 @@
 `define pretrained
+/*
 `define numLayers 5
 `define dataWidth 31
 `define numNeuronLayer1 30
@@ -17,4 +18,6 @@
 `define numWeightLayer5 10
 `define Layer5ActType "hardmax"
 `define sigmoidSize 5
+`define sigmoidSize 5
 `define weightIntWidth 1
+*/

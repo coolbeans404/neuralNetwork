@@ -1,0 +1,12 @@
+Current Progress/Links
+https://github.com/coolbeans404/neuralNetwork
+
+Project One: Single Neuron
+Purpose: To look at the resource limitations using different activation functions and other associated parameters
+Status: Unable to progress, insufficient information pertaining to the lack of information on bits of the single neuron implementation. Elaborated design looks complete but synthesized design lacks logic gates, 63LUT/66FF vs 130LUT/66FF. Suspect individual IP logic lacking on YouTube/Tutorial especially the memory implementation, due to differences in LUT usage. AXI memory interface is likely the cause. Skipping to P2 for now.
+Uses: Files from T1/T2. 
+
+Project Two: Replicated Simulation of Example Network
+Purpose: Simulate the provided and pre-trained network.
+Status: On-going.
+Uses: Files from 

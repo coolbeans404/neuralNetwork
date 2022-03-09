@@ -16,5 +16,5 @@
 `define numNeuronLayer5 10
 `define numWeightLayer5 10
 `define Layer5ActType "hardmax"
-`define sigmoidSize 10
+`define sigmoidSize 5
 `define weightIntWidth 4
