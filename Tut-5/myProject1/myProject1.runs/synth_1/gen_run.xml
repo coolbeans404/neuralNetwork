@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1646990915">
   <File Type="PA-TCL" Name="zyNet.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="zyNet_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="zyNet_reports.tcl"/>
   <File Type="RDS-RDS" Name="zyNet.vds"/>
   <File Type="RDS-UTIL" Name="zyNet_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="zyNet_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="zyNet.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="zyNet_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="zyNet_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../src/fpga/rtl/Layer_1.v">

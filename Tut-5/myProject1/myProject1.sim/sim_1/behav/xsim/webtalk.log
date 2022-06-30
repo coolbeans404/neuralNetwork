@@ -2,12 +2,12 @@
 # Webtalk v2021.1 (64-bit)
 # SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
 # IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
-# Start of session at: Fri Mar 11 17:15:04 2022
-# Process ID: 273660
+# Start of session at: Fri May  6 17:17:14 2022
+# Process ID: 15348
 # Current directory: C:/Users/user/Documents/GitHub/Tut-5/myProject1/myProject1.sim/sim_1/behav/xsim
 # Command line: wbtcv.exe -mode batch -source C:/Users/user/Documents/GitHub/Tut-5/myProject1/myProject1.sim/sim_1/behav/xsim/xsim.dir/top_sim_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: C:/Users/user/Documents/GitHub/Tut-5/myProject1/myProject1.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: C:/Users/user/Documents/GitHub/Tut-5/myProject1/myProject1.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
 source C:/Users/user/Documents/GitHub/Tut-5/myProject1/myProject1.sim/sim_1/behav/xsim/xsim.dir/top_sim_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Fri Mar 11 17:15:04 2022...
+INFO: [Common 17-206] Exiting Webtalk at Fri May  6 17:17:14 2022...

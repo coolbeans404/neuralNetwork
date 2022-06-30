@@ -1,0 +1,268 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Wed Apr 13 17:48:50 2022
+# Process ID: 12516
+# Current directory: C:/Users/user/Documents/GitHub/Tut-8
+# Command line: vivado.exe -mode tcl -source zynet.tcl -tclargs --project_name mnistbnn
+# Log file: C:/Users/user/Documents/GitHub/Tut-8/vivado.log
+# Journal file: C:/Users/user/Documents/GitHub/Tut-8\vivado.jou
+#-----------------------------------------------------------
+source zynet.tcl
+# proc checkRequiredFiles { origin_dir} {
+#   set status true
+#   set files [list \
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_0.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_1.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_10.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_11.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_12.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_13.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_14.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_15.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_16.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_17.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_18.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_19.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_2.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_20.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_21.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_22.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_23.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_24.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_25.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_26.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_27.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_28.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_29.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_3.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_4.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_5.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_6.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_7.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_8.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_1_9.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_0.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_1.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_10.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_11.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_12.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_13.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_14.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_15.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_16.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_17.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_18.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_19.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_2.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_20.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_21.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_22.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_23.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_24.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_25.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_26.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_27.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_28.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_29.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_3.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_4.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_5.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_6.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_7.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_8.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_2_9.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_3_0.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_3_1.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_3_2.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_3_3.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_3_4.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_3_5.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_3_6.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_3_7.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_3_8.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_3_9.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_4_0.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_4_1.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_4_2.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_4_3.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_4_4.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_4_5.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_4_6.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_4_7.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_4_8.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/b_4_9.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/sigContent.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_0.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_1.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_10.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_11.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_12.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_13.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_14.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_15.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_16.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_17.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_18.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_19.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_2.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_20.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_21.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_22.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_23.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_24.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_25.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_26.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_27.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_28.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_29.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_3.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_4.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_5.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_6.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_7.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_8.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_1_9.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_0.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_1.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_10.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_11.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_12.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_13.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_14.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_15.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_16.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_17.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_18.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_19.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_2.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_20.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_21.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_22.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_23.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_24.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_25.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_26.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_27.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_28.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_29.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_3.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_4.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_5.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_6.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_7.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_8.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_2_9.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_3_0.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_3_1.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_3_2.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_3_3.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_3_4.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_3_5.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_3_6.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_3_7.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_3_8.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_3_9.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_4_0.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_4_1.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_4_2.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_4_3.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_4_4.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_4_5.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_4_6.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_4_7.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_4_8.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/w_4_9.mif"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/axi_lite_wrapper.v"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/include.v"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/Layer_1.v"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/Layer_2.v"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/Layer_3.v"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/maxFinder.v"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/neuron.v"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/relu.v"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/Sig_ROM.v"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/Weight_Memory.v"]"\
+#  "[file normalize "$origin_dir/src/fpga/rtl/zynet.v"]"\
+#  "[file normalize "$origin_dir/src/fpga/tb/top_sim.v"]"\
+#   ]
+#   foreach ifile $files {
+#     if { ![file isfile $ifile] } {
+#       puts " Could not find local file $ifile "
+#       set status false
+#     }
+#   }
+# 
+#   return $status
+# }
+# set origin_dir "."
+# if { [info exists ::origin_dir_loc] } {
+#   set origin_dir $::origin_dir_loc
+# }
+# set _xil_proj_name_ "Project"
+# if { [info exists ::user_project_name] } {
+#   set _xil_proj_name_ $::user_project_name
+# }
+# variable script_file
+# set script_file "zynet.tcl"
+# proc print_help {} {
+#   variable script_file
+#   puts "\nDescription:"
+#   puts "Recreate a Vivado project from this script. The created project will be"
+#   puts "functionally equivalent to the original project for which this script was"
+#   puts "generated. The script contains commands for creating a project, filesets,"
+#   puts "runs, adding/importing sources and setting properties on various objects.\n"
+#   puts "Syntax:"
+#   puts "$script_file"
+#   puts "$script_file -tclargs \[--origin_dir <path>\]"
+#   puts "$script_file -tclargs \[--project_name <name>\]"
+#   puts "$script_file -tclargs \[--help\]\n"
+#   puts "Usage:"
+#   puts "Name                   Description"
+#   puts "-------------------------------------------------------------------------"
+#   puts "\[--origin_dir <path>\]  Determine source file paths wrt this path. Default"
+#   puts "                       origin_dir path value is \".\", otherwise, the value"
+#   puts "                       that was set with the \"-paths_relative_to\" switch"
+#   puts "                       when this script was generated.\n"
+#   puts "\[--project_name <name>\] Create project with the specified name. Default"
+#   puts "                       name is the name of the project from where this"
+#   puts "                       script was generated.\n"
+#   puts "\[--help\]               Print help information for this script"
+#   puts "-------------------------------------------------------------------------\n"
+#   exit 0
+# }
+# if { $::argc > 0 } {
+#   for {set i 0} {$i < $::argc} {incr i} {
+#     set option [string trim [lindex $::argv $i]]
+#     switch -regexp -- $option {
+#       "--origin_dir"   { incr i; set origin_dir [lindex $::argv $i] }
+#       "--project_name" { incr i; set _xil_proj_name_ [lindex $::argv $i] }
+#       "--help"         { print_help }
+#       default {
+#         if { [regexp {^-} $option] } {
+#           puts "ERROR: Unknown option '$option' specified, please type '$script_file -tclargs --help' for usage info.\n"
+#           return 1
+#         }
+#       }
+#     }
+#   }
+# }
+# set orig_proj_dir "[file normalize "$origin_dir/."]"
+# set validate_required 0
+# if { $validate_required } {
+#   if { [checkRequiredFiles $origin_dir] } {
+#     puts "Tcl file $script_file is valid. All files required for project creation is accesable. "
+#   } else {
+#     puts "Tcl file $script_file is not valid. Not all files required for project creation is accesable. "
+#     return
+#   }
+# }
+# create_project ${_xil_proj_name_} ./${_xil_proj_name_} -part xc7z020clg484-1
+ERROR: [Common 17-53] User Exception: Project already exists on disk, please use '-force' option to overwrite: 
+     C:/Users/user/Documents/GitHub/Tut-8/mnistbnn/mnistbnn.xpr
+     C:/Users/user/Documents/GitHub/Tut-8/mnistbnn/mnistbnn.sim
+     C:/Users/user/Documents/GitHub/Tut-8/mnistbnn/mnistbnn.cache
+     C:/Users/user/Documents/GitHub/Tut-8/mnistbnn/mnistbnn.hw
+     C:/Users/user/Documents/GitHub/Tut-8/mnistbnn/mnistbnn.ip_user_files
+Vivado% 

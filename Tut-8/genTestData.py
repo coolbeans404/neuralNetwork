@@ -1,7 +1,7 @@
 import sys
 
-outputPath = "./myProject1/myProject1.sim/sim_1/behav/xsim/"
-headerFilePath = "./myProject1/myProject1.sim/sim_1/behav/xsim/"
+outputPath = "./mnistbnn/mnistbnn.sim/sim_1/behav/xsim/"
+headerFilePath = "./mnistbnn/mnistbnn.sim/sim_1/behav/xsim/"
 
 try:
     import cPickle as pickle
