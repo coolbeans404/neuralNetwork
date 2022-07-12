@@ -1,0 +1,1771 @@
+
+*** Running vivado
+    with args -log zyNet.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source zyNet.tcl
+
+
+
+****** Vivado v2021.1 (64-bit)
+  **** SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+  **** IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source zyNet.tcl -notrace
+Command: synth_design -top zyNet -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 18048
+WARNING: [Synth 8-2507] parameter declaration becomes local in neuron with formal parameter declaration list [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:39]
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1135.902 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'zyNet' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/zynet.v:23]
+INFO: [Synth 8-6157] synthesizing module 'axi_lite_wrapper' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/axi_lite_wrapper.v:4]
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/axi_lite_wrapper.v:260]
+INFO: [Synth 8-226] default block is never used [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/axi_lite_wrapper.v:389]
+INFO: [Synth 8-6155] done synthesizing module 'axi_lite_wrapper' (1#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/axi_lite_wrapper.v:4]
+INFO: [Synth 8-6157] synthesizing module 'Layer_1' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Layer_1.v:1]
+	Parameter NN bound to: 30 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter layerNum bound to: 1 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+INFO: [Synth 8-6157] synthesizing module 'neuron' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 0 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_0.mif - type: string 
+	Parameter weightFile bound to: w_1_0.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_0.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Sig_ROM' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Sig_ROM.v:23]
+	Parameter inWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+INFO: [Synth 8-3876] $readmem data file 'sigContent.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Sig_ROM.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'Sig_ROM' (2#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Sig_ROM.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 0 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_0.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_0.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory' (3#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized0' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 1 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_1.mif - type: string 
+	Parameter weightFile bound to: w_1_1.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_1.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized0' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 1 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_1.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_1.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized0' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized0' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized0' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized1' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 2 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_2.mif - type: string 
+	Parameter weightFile bound to: w_1_2.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_2.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized1' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 2 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_2.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_2.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized1' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized1' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized1' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized2' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 3 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_3.mif - type: string 
+	Parameter weightFile bound to: w_1_3.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_3.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized2' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 3 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_3.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_3.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized2' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized2' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized2' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized3' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 4 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_4.mif - type: string 
+	Parameter weightFile bound to: w_1_4.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_4.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized3' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 4 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_4.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_4.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized3' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized3' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized3' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized4' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 5 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_5.mif - type: string 
+	Parameter weightFile bound to: w_1_5.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_5.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized4' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 5 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_5.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_5.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized4' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized4' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized4' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized5' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 6 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_6.mif - type: string 
+	Parameter weightFile bound to: w_1_6.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_6.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized5' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 6 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_6.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_6.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized5' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized5' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized5' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized6' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 7 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_7.mif - type: string 
+	Parameter weightFile bound to: w_1_7.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_7.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized6' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 7 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_7.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_7.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized6' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized6' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized6' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized7' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 8 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_8.mif - type: string 
+	Parameter weightFile bound to: w_1_8.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_8.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized7' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 8 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_8.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_8.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized7' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized7' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized7' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized8' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 9 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_9.mif - type: string 
+	Parameter weightFile bound to: w_1_9.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_9.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized8' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 9 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_9.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_9.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized8' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized8' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized8' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized9' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 10 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_10.mif - type: string 
+	Parameter weightFile bound to: w_1_10.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_10.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized9' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 10 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_10.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_10.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized9' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized9' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized9' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized10' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 11 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_11.mif - type: string 
+	Parameter weightFile bound to: w_1_11.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_11.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized10' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 11 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_11.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_11.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized10' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized10' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized10' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized11' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 12 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_12.mif - type: string 
+	Parameter weightFile bound to: w_1_12.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_12.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized11' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 12 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_12.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_12.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized11' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized11' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized11' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized12' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 13 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_13.mif - type: string 
+	Parameter weightFile bound to: w_1_13.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_13.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized12' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 13 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_13.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_13.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized12' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized12' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized12' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized13' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 14 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_14.mif - type: string 
+	Parameter weightFile bound to: w_1_14.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_14.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized13' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 14 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_14.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_14.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized13' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized13' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized13' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized14' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 15 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_15.mif - type: string 
+	Parameter weightFile bound to: w_1_15.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_15.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized14' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 15 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_15.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_15.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized14' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized14' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized14' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized15' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 16 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_16.mif - type: string 
+	Parameter weightFile bound to: w_1_16.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_16.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized15' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 16 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_16.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_16.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized15' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized15' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized15' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized16' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 17 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_17.mif - type: string 
+	Parameter weightFile bound to: w_1_17.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_17.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized16' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 17 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_17.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_17.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized16' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized16' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized16' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized17' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 18 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_18.mif - type: string 
+	Parameter weightFile bound to: w_1_18.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_18.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized17' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 18 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_18.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_18.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized17' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized17' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized17' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized18' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 19 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_19.mif - type: string 
+	Parameter weightFile bound to: w_1_19.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_19.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized18' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 19 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_19.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_19.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized18' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized18' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized18' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized19' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 20 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_20.mif - type: string 
+	Parameter weightFile bound to: w_1_20.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_20.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized19' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 20 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_20.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_20.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized19' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized19' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized19' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized20' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 21 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_21.mif - type: string 
+	Parameter weightFile bound to: w_1_21.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_21.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized20' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 21 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_21.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_21.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized20' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized20' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized20' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized21' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 22 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_22.mif - type: string 
+	Parameter weightFile bound to: w_1_22.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_22.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized21' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 22 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_22.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_22.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized21' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized21' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized21' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized22' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 23 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_23.mif - type: string 
+	Parameter weightFile bound to: w_1_23.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_23.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized22' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 23 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_23.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_23.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized22' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized22' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized22' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized23' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 24 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_24.mif - type: string 
+	Parameter weightFile bound to: w_1_24.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_24.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized23' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 24 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_24.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_24.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized23' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized23' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized23' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized24' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 25 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_25.mif - type: string 
+	Parameter weightFile bound to: w_1_25.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_25.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized24' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 25 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_25.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_25.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized24' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized24' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized24' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized25' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 26 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_26.mif - type: string 
+	Parameter weightFile bound to: w_1_26.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_26.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized25' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 26 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_26.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_26.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized25' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized25' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized25' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized26' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 27 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_27.mif - type: string 
+	Parameter weightFile bound to: w_1_27.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_27.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized26' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 27 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_27.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_27.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized26' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized26' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized26' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized27' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 28 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_28.mif - type: string 
+	Parameter weightFile bound to: w_1_28.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_28.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized27' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 28 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_28.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_28.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized27' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized27' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized27' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized28' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter neuronNo bound to: 29 - type: integer 
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_1_29.mif - type: string 
+	Parameter weightFile bound to: w_1_29.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_1_29.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized28' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 784 - type: integer 
+	Parameter neuronNo bound to: 29 - type: integer 
+	Parameter layerNo bound to: 1 - type: integer 
+	Parameter addressWidth bound to: 10 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_1_29.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_1_29.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized28' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (11) of port connection 'radd' does not match port width (10) of module 'Weight_Memory__parameterized28' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized28' (4#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'Layer_1' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Layer_1.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Layer_2' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Layer_2.v:1]
+	Parameter NN bound to: 30 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter layerNum bound to: 2 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized29' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 0 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_0.mif - type: string 
+	Parameter weightFile bound to: w_2_0.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_0.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized29' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 0 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_0.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_0.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized29' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized29' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized29' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized30' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 1 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_1.mif - type: string 
+	Parameter weightFile bound to: w_2_1.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_1.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized30' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 1 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_1.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_1.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized30' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized30' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized30' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized31' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 2 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_2.mif - type: string 
+	Parameter weightFile bound to: w_2_2.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_2.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized31' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 2 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_2.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_2.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized31' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized31' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized31' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized32' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 3 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_3.mif - type: string 
+	Parameter weightFile bound to: w_2_3.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_3.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized32' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 3 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_3.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_3.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized32' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized32' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized32' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized33' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 4 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_4.mif - type: string 
+	Parameter weightFile bound to: w_2_4.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_4.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized33' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 4 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_4.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_4.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized33' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized33' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized33' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized34' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 5 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_5.mif - type: string 
+	Parameter weightFile bound to: w_2_5.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_5.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized34' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 5 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_5.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_5.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized34' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized34' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized34' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized35' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 6 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_6.mif - type: string 
+	Parameter weightFile bound to: w_2_6.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_6.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized35' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 6 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_6.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_6.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized35' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized35' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized35' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized36' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 7 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_7.mif - type: string 
+	Parameter weightFile bound to: w_2_7.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_7.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized36' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 7 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_7.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_7.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized36' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized36' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized36' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized37' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 8 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_8.mif - type: string 
+	Parameter weightFile bound to: w_2_8.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_8.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized37' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 8 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_8.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_8.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized37' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized37' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized37' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized38' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 9 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_9.mif - type: string 
+	Parameter weightFile bound to: w_2_9.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_9.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized38' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 9 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_9.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_9.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized38' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized38' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized38' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized39' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 10 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_10.mif - type: string 
+	Parameter weightFile bound to: w_2_10.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_10.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized39' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 10 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_10.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_10.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized39' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized39' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized39' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized40' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 11 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_11.mif - type: string 
+	Parameter weightFile bound to: w_2_11.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_11.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized40' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 11 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_11.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_11.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized40' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized40' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized40' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized41' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 12 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_12.mif - type: string 
+	Parameter weightFile bound to: w_2_12.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_12.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized41' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 12 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_12.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_12.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized41' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized41' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized41' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized42' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 13 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_13.mif - type: string 
+	Parameter weightFile bound to: w_2_13.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_13.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized42' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 13 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_13.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_13.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized42' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized42' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized42' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized43' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 14 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_14.mif - type: string 
+	Parameter weightFile bound to: w_2_14.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_14.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized43' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 14 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_14.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_14.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized43' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized43' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized43' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized44' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 15 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_15.mif - type: string 
+	Parameter weightFile bound to: w_2_15.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_15.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized44' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 15 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_15.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_15.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized44' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized44' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized44' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized45' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 16 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_16.mif - type: string 
+	Parameter weightFile bound to: w_2_16.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_16.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Synth 8-6157] synthesizing module 'Weight_Memory__parameterized45' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 16 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_16.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_16.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized45' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized45' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized45' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Synth 8-6157] synthesizing module 'neuron__parameterized46' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+INFO: [Common 17-14] Message 'Synth 8-6157' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 17 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_17.mif - type: string 
+	Parameter weightFile bound to: w_2_17.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_17.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 17 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_17.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_17.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized46' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized46' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'neuron__parameterized46' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:24]
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 18 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_18.mif - type: string 
+	Parameter weightFile bound to: w_2_18.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_18.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 18 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_18.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'w_2_18.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'Weight_Memory__parameterized47' (5#1) [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/Weight_Memory.v:23]
+INFO: [Common 17-14] Message 'Synth 8-6155' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized47' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 19 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_19.mif - type: string 
+	Parameter weightFile bound to: w_2_19.mif - type: string 
+INFO: [Synth 8-3876] $readmem data file 'b_2_19.mif' is read successfully [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:87]
+INFO: [Common 17-14] Message 'Synth 8-3876' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 19 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_19.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized48' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 20 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_20.mif - type: string 
+	Parameter weightFile bound to: w_2_20.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 20 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_20.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized49' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 21 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_21.mif - type: string 
+	Parameter weightFile bound to: w_2_21.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 21 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_21.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized50' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 22 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_22.mif - type: string 
+	Parameter weightFile bound to: w_2_22.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 22 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_22.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized51' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 23 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_23.mif - type: string 
+	Parameter weightFile bound to: w_2_23.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 23 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_23.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized52' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 24 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_24.mif - type: string 
+	Parameter weightFile bound to: w_2_24.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 24 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_24.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized53' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 25 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_25.mif - type: string 
+	Parameter weightFile bound to: w_2_25.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 25 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_25.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized54' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 26 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_26.mif - type: string 
+	Parameter weightFile bound to: w_2_26.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 26 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_26.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized55' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 27 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_27.mif - type: string 
+	Parameter weightFile bound to: w_2_27.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 27 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_27.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized56' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 28 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_28.mif - type: string 
+	Parameter weightFile bound to: w_2_28.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 28 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_28.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized57' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter neuronNo bound to: 29 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_2_29.mif - type: string 
+	Parameter weightFile bound to: w_2_29.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 29 - type: integer 
+	Parameter layerNo bound to: 2 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_2_29.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized58' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter NN bound to: 10 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter layerNum bound to: 3 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter neuronNo bound to: 0 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_3_0.mif - type: string 
+	Parameter weightFile bound to: w_3_0.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 0 - type: integer 
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_3_0.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized59' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter neuronNo bound to: 1 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_3_1.mif - type: string 
+	Parameter weightFile bound to: w_3_1.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 1 - type: integer 
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_3_1.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized60' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter neuronNo bound to: 2 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_3_2.mif - type: string 
+	Parameter weightFile bound to: w_3_2.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 2 - type: integer 
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_3_2.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized61' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter neuronNo bound to: 3 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_3_3.mif - type: string 
+	Parameter weightFile bound to: w_3_3.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 3 - type: integer 
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_3_3.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized62' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter neuronNo bound to: 4 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_3_4.mif - type: string 
+	Parameter weightFile bound to: w_3_4.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 4 - type: integer 
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_3_4.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized63' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter neuronNo bound to: 5 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_3_5.mif - type: string 
+	Parameter weightFile bound to: w_3_5.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 5 - type: integer 
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_3_5.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized64' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter neuronNo bound to: 6 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_3_6.mif - type: string 
+	Parameter weightFile bound to: w_3_6.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 6 - type: integer 
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_3_6.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized65' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter neuronNo bound to: 7 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_3_7.mif - type: string 
+	Parameter weightFile bound to: w_3_7.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 7 - type: integer 
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_3_7.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized66' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter neuronNo bound to: 8 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_3_8.mif - type: string 
+	Parameter weightFile bound to: w_3_8.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 8 - type: integer 
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_3_8.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized67' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter neuronNo bound to: 9 - type: integer 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter sigmoidSize bound to: 10 - type: integer 
+	Parameter weightIntWidth bound to: 4 - type: integer 
+	Parameter actType bound to: sigmoid - type: string 
+	Parameter biasFile bound to: b_3_9.mif - type: string 
+	Parameter weightFile bound to: w_3_9.mif - type: string 
+	Parameter numWeight bound to: 30 - type: integer 
+	Parameter neuronNo bound to: 9 - type: integer 
+	Parameter layerNo bound to: 3 - type: integer 
+	Parameter addressWidth bound to: 5 - type: integer 
+	Parameter dataWidth bound to: 16 - type: integer 
+	Parameter weightFile bound to: w_3_9.mif - type: string 
+WARNING: [Synth 8-689] width (6) of port connection 'radd' does not match port width (5) of module 'Weight_Memory__parameterized68' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/neuron.v:172]
+	1: RAM's read address port stuck at constant. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
+ERROR: [Synth 8-439] module 'Layer_4' not found [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/zynet.v:306]
+	Parameter NN bound to: 32'sb00000000000000000000000000001010 
+	Parameter numWeight bound to: 32'sb00000000000000000000000000001010 
+	Parameter dataWidth bound to: 32'sb00000000000000000000000000010000 
+	Parameter layerNum bound to: 32'sb00000000000000000000000000000100 
+	Parameter sigmoidSize bound to: 32'sb00000000000000000000000000001010 
+	Parameter weightIntWidth bound to: 32'sb00000000000000000000000000000100 
+	Parameter actType bound to: sigmoid - type: string 
+ERROR: [Synth 8-6156] failed synthesizing module 'zyNet' [C:/Users/user/Documents/GitHub/Tut-8/src/fpga/rtl/zynet.v:23]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1135.902 ; gain = 0.000
+---------------------------------------------------------------------------------
+synthesize failed
+INFO: [Common 17-83] Releasing license: Synthesis
+310 Infos, 71 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Fri May  6 18:25:04 2022...

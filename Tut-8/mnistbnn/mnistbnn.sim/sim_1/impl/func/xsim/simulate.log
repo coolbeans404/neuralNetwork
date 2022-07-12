@@ -1,0 +1,7 @@
+Time resolution is 1 ps
+Configuration completed                      0 ns
+WARNING: File test_data_0000.txt referenced on C:/Users/user/Documents/GitHub/Tut-8/src/fpga/tb/top_sim.v at line 276 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+1. Accuracy: 0.000000, Detected number: 0, Expected: xx
+WARNING: File test_data_0001.txt referenced on C:/Users/user/Documents/GitHub/Tut-8/src/fpga/tb/top_sim.v at line 276 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+2. Accuracy: 0.000000, Detected number: 0, Expected: xx
+WARNING: File test_data_0002.txt referenced on C:/Users/user/Documents/GitHub/Tut-8/src/fpga/tb/top_sim.v at line 276 cannot be opened for reading. Please ensure that this file is available in the current working directory.

@@ -42,6 +42,7 @@ def load_data():
     f.close()
     return (training_data, validation_data, test_data)
 
+#generate test data in text format for vivado to read from (for a particular set of test data)
 def genTestData(dataWidth,IntSize,testDataNum):
     dataHeaderFile = open(headerFilePath+"dataValues.h","w")
     dataHeaderFile.write("int dataValues[]={")
@@ -75,7 +76,7 @@ def genTestData(dataWidth,IntSize,testDataNum):
     dataHeaderFile.write('int result='+str(te_d[1][testDataNum])+';\n')
     dataHeaderFile.close()
         
-        
+#generate test data in text format for vivado to read from (for the entire set of test data)        
 def genAllTestData(dataWidth,IntSize):
     tr_d, va_d, te_d = load_data()
     test_inputs = [np.reshape(x, (1, 784)) for x in te_d[0]]

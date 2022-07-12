@@ -12,9 +12,9 @@ def genMnistZynet(dataWidth,sigmoidSize,weightIntSize,inputIntSize):
     weightArray = utils.genWeightArray('WeigntsAndBiases.txt')
     biasArray = utils.genBiasArray('WeigntsAndBiases.txt')
     model.compile(pretrained='Yes',weights=weightArray,biases=biasArray,dataWidth=dataWidth,weightIntSize=weightIntSize,inputIntSize=inputIntSize,sigmoidSize=sigmoidSize)
-    zynet.makeXilinxProject('myProject1','xc7z020clg484-1')
-    zynet.makeIP('myProject1')
-    zynet.makeSystem('myProject1','myBlock2')
+    zynet.makeXilinxProject('mnistbnn','xc7z020clg484-1')
+    zynet.makeIP('mnistbnn')
+    zynet.makeSystem('mnistbnn','mnistbnnBlock')
     
 if __name__ == "__main__":
     genMnistZynet(dataWidth=8,sigmoidSize=10,weightIntSize=4,inputIntSize=1)

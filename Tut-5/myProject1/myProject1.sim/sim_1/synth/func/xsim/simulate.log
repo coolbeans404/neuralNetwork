@@ -1,0 +1,27 @@
+Time resolution is 1 ps
+Configuration completed                      0 ns
+WARNING: File test_data_0000.txt referenced on C:/Users/user/Documents/GitHub/Tut-5/src/fpga/tb/top_sim.v at line 276 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+1. Accuracy: 0.000000, Detected number: 0, Expected: xxxx
+WARNING: File test_data_0001.txt referenced on C:/Users/user/Documents/GitHub/Tut-5/src/fpga/tb/top_sim.v at line 276 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+2. Accuracy: 0.000000, Detected number: 0, Expected: xxxx
+WARNING: File test_data_0002.txt referenced on C:/Users/user/Documents/GitHub/Tut-5/src/fpga/tb/top_sim.v at line 276 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+3. Accuracy: 0.000000, Detected number: 0, Expected: xxxx
+WARNING: File test_data_0003.txt referenced on C:/Users/user/Documents/GitHub/Tut-5/src/fpga/tb/top_sim.v at line 276 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+4. Accuracy: 0.000000, Detected number: 0, Expected: xxxx
+WARNING: File test_data_0004.txt referenced on C:/Users/user/Documents/GitHub/Tut-5/src/fpga/tb/top_sim.v at line 276 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+5. Accuracy: 0.000000, Detected number: 0, Expected: xxxx
+WARNING: File test_data_0005.txt referenced on C:/Users/user/Documents/GitHub/Tut-5/src/fpga/tb/top_sim.v at line 276 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+6. Accuracy: 0.000000, Detected number: 0, Expected: xxxx
+WARNING: File test_data_0006.txt referenced on C:/Users/user/Documents/GitHub/Tut-5/src/fpga/tb/top_sim.v at line 276 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+7. Accuracy: 0.000000, Detected number: 0, Expected: xxxx
+WARNING: File test_data_0007.txt referenced on C:/Users/user/Documents/GitHub/Tut-5/src/fpga/tb/top_sim.v at line 276 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+8. Accuracy: 0.000000, Detected number: 0, Expected: xxxx
+WARNING: File test_data_0008.txt referenced on C:/Users/user/Documents/GitHub/Tut-5/src/fpga/tb/top_sim.v at line 276 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+9. Accuracy: 0.000000, Detected number: 0, Expected: xxxx
+WARNING: File test_data_0009.txt referenced on C:/Users/user/Documents/GitHub/Tut-5/src/fpga/tb/top_sim.v at line 276 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+10. Accuracy: 0.000000, Detected number: 0, Expected: xxxx
+WARNING: File test_data_0010.txt referenced on C:/Users/user/Documents/GitHub/Tut-5/src/fpga/tb/top_sim.v at line 276 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+11. Accuracy: 0.000000, Detected number: 0, Expected: xxxx
+WARNING: File test_data_0011.txt referenced on C:/Users/user/Documents/GitHub/Tut-5/src/fpga/tb/top_sim.v at line 276 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+12. Accuracy: 0.000000, Detected number: 0, Expected: xxxx
+WARNING: File test_data_0012.txt referenced on C:/Users/user/Documents/GitHub/Tut-5/src/fpga/tb/top_sim.v at line 276 cannot be opened for reading. Please ensure that this file is available in the current working directory.

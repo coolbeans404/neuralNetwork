@@ -1,0 +1,18 @@
+0.7
+2020.2
+Jun 10 2021
+20:04:57
+C:/Users/user/Documents/GitHub/Tut-5/myProject1/myProject1.sim/sim_1/behav/xsim/glbl.v,1623370582,verilog,,,,glbl,,,,,,,,
+C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/Layer_1.v,1646990144,verilog,,C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/Layer_2.v,,Layer_1,,,,,,,,
+C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/Layer_2.v,1646990144,verilog,,C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/Layer_3.v,,Layer_2,,,,,,,,
+C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/Layer_3.v,1646990144,verilog,,C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/Layer_4.v,,Layer_3,,,,,,,,
+C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/Layer_4.v,1646990144,verilog,,C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/Sig_ROM.v,,Layer_4,,,,,,,,
+C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/Sig_ROM.v,1646990144,verilog,,C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/Weight_Memory.v,,Sig_ROM,,,,,,,,
+C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/Weight_Memory.v,1646990144,verilog,,C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/axi_lite_wrapper.v,C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/include.v,Weight_Memory,,,,,,,,
+C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/axi_lite_wrapper.v,1645522095,verilog,,C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/maxFinder.v,,axi_lite_wrapper,,,,,,,,
+C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/include.v,1646990144,verilog,,,,,,,,,,,,
+C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/maxFinder.v,1645522095,verilog,,C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/neuron.v,,maxFinder,,,,,,,,
+C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/neuron.v,1645522095,verilog,,C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/relu.v,C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/include.v,neuron,,,,,,,,
+C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/relu.v,1645522095,verilog,,C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/zynet.v,,ReLU,,,,,,,,
+C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/zynet.v,1645522095,verilog,,C:/Users/user/Documents/GitHub/Tut-5/src/fpga/tb/top_sim.v,C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/include.v,zyNet,,,,,,,,
+C:/Users/user/Documents/GitHub/Tut-5/src/fpga/tb/top_sim.v,1645522095,verilog,,,C:/Users/user/Documents/GitHub/Tut-5/src/fpga/rtl/include.v,top_sim,,,,,,,,

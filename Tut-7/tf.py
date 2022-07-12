@@ -9,7 +9,7 @@ x_test = tf.keras.utils.normalize(x_test, axis=1)
 model = tf.keras.models.Sequential()
 model.add(tf.keras.layers.Flatten())
 model.add(tf.keras.layers.Dense(30,activation=tf.nn.sigmoid))
-model.add(tf.keras.layers.Dense(30,activation=tf.nn.sigmoid))
+model.add(tf.keras.layers.Dense(20,activation=tf.nn.sigmoid))
 model.add(tf.keras.layers.Dense(10,activation=tf.nn.sigmoid))
 model.add(tf.keras.layers.Dense(10,activation=tf.nn.sigmoid))
 

@@ -1,0 +1,7 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"top_sim_func_synth.v" \
+"../../../../../../src/fpga/tb/top_sim.v" \
+
+# Do not sort compile order
+nosort

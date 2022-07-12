@@ -1,16 +1,17 @@
 import json
 
 dataWidth = 16
-dataIntWidth = 1
-weightIntWidth = 4
+dataIntWidth = 1    #bits for representing integer part. Using 1 for sigmoid is sufficient if inputs are normalized since are inputs are positive. This bit is for representing the sign.
+weightIntWidth = 4  #there is a script to identify this from the weightsandbiases.txt
 inputFile = "WeigntsAndBiases.txt"
 dataFracWidth = dataWidth-dataIntWidth
 weightFracWidth = dataWidth-weightIntWidth
 biasIntWidth = dataIntWidth+weightIntWidth
 biasFracWidth = dataWidth-biasIntWidth
-outputPath = "./w_b/"
+outputPath = "./w_b/"   #output folder for the mif files
 headerPath = "./"
 
+#fx to generate the size of 2's complement representation of floating point number
 def DtoB(num,dataWidth,fracBits):						#funtion for converting into two's complement format
 	if num >= 0:
 		num = num * (2**fracBits)
@@ -26,6 +27,7 @@ def DtoB(num,dataWidth,fracBits):						#funtion for converting into two's comple
 			d = 2**dataWidth - num
 	return d
 
+#main fx for generating weights and biases
 def genWaitAndBias(dataWidth,weightFracWidth,biasFracWidth,inputFile):
 	weightIntWidth = dataWidth-weightFracWidth
 	biasIntWidth = dataWidth-biasFracWidth
